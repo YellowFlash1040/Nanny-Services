@@ -1,0 +1,96 @@
+.dropDown {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  width: 226px;
+
+  position: relative;
+
+  font-size: 18px;
+  line-height: 1.11;
+  text-align: left;
+}
+
+.dropDownOpened {
+  & > .optionsList {
+    opacity: 1;
+  }
+
+  & > .toggleButton > svg {
+    transform: translateY(-50%) rotate(0);
+  }
+}
+
+.toggleButton {
+  color: var(--text-color-light);
+  background-color: var(--main-color);
+
+  padding: 14px 18px;
+
+  width: 100%;
+
+  border: none;
+  border-radius: 14px;
+
+  font-size: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  text-align: inherit;
+
+  position: relative;
+  stroke: var(--text-color-light);
+
+  & > svg {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+
+    transform: translateY(-50%) rotate(180deg);
+
+    transition: transform var(--transition-options);
+  }
+}
+
+.optionsList {
+  background-color: var(--main-background-color);
+
+  border-radius: 14px;
+  border: none;
+
+  /* padding: 14px 18px 18px 18px; */
+
+  display: flex;
+  flex-direction: column;
+  /* row-gap: 12px; */
+
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+
+  opacity: 0;
+
+  transition: opacity var(--transition-options);
+
+  & > li {
+    cursor: pointer;
+
+    border-radius: 14px;
+
+    padding: 6px 18px;
+
+    transition: background-color var(--transition-options-fast);
+  }
+
+  & > li:first-child {
+    padding: 14px 18px 6px 18px;
+  }
+
+  & > li:last-child {
+    padding: 6px 18px 18px 18px;
+  }
+
+  & > li:hover {
+    background-color: #cccccc;
+  }
+}

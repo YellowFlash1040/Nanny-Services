@@ -4,3 +4,4 @@ export { default as PageContainer } from './PageContainer/PageContainer';
 export { default as UserProfile } from './UserProfile/UserProfile';
 export { default as LogButton } from './LogButton/LogButton';
 export { default as Header } from './Header/Header';
+export { default as SortByDropDown } from './SortByDropDown/SortByDropDown';

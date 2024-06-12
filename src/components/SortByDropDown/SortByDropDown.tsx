@@ -10,6 +10,16 @@ interface SortByDropDownProps {
 }
 
 const SortByDropDown = ({ className }: SortByDropDownProps) => {
+  const optionsList = [
+    'A to Z',
+    'Z to A',
+    'Less than 10$',
+    'Greater that 10$',
+    'Popular',
+    'Not popular',
+    'Show all'
+  ];
+
   const [isOpened, setIsOpened] = useState(false);
   const [selectedItem, setSelectedItem] = useState('A to Z');
 
@@ -34,8 +44,8 @@ const SortByDropDown = ({ className }: SortByDropDownProps) => {
     if (target.tagName === 'LI') {
       setIsOpened(false);
 
-      const selectedItem = target.textContent;
-      setSelectedItem(selectedItem!);
+      const selectedItemValue = target.textContent;
+      setSelectedItem(selectedItemValue!);
     }
   };
 
@@ -53,13 +63,14 @@ const SortByDropDown = ({ className }: SortByDropDownProps) => {
         <ChevronIcon width={20} height={20} />
       </button>
       <ul className={s.optionsList} onClick={handleItemSelect}>
-        <li value={'A to Z'}>A to Z</li>
-        <li>Z to A</li>
-        <li>Less than 10$</li>
-        <li>Greater that 10$</li>
-        <li>Popular</li>
-        <li>Not popular</li>
-        <li>Show all</li>
+        {optionsList.map((option) => (
+          <li
+            key={option}
+            className={clsx({ [s.selectedItem]: selectedItem === option })}
+          >
+            {option}
+          </li>
+        ))}
       </ul>
     </div>
   );

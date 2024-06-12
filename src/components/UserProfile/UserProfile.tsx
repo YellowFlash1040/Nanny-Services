@@ -14,7 +14,7 @@ const UserProfile = ({ className }: UserProfileProps) => {
       <div className={s.avatarContainer}>
         <UserProfileIcon width={24} height={24} />
       </div>
-      <p>User name</p>
+      <p>Ilona</p>
     </button>
   );
 };

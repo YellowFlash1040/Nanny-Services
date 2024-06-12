@@ -5,3 +5,7 @@ export { default as UserProfile } from './UserProfile/UserProfile';
 export { default as LogButton } from './LogButton/LogButton';
 export { default as Header } from './Header/Header';
 export { default as SortByDropDown } from './SortByDropDown/SortByDropDown';
+export { default as Filters } from './Filters/Filters';
+export { default as UserPanel } from './UserPanel/UserPanel';
+export { default as Navigation } from './Navigation/Navigation';
+export { default as Logo } from './Logo/Logo';

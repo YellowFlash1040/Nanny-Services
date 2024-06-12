@@ -1,15 +1,15 @@
 .dropDown {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  row-gap: 8px;
+  row-gap: 8px; */
 
   width: 226px;
-
-  position: relative;
 
   font-size: 18px;
   line-height: 1.11;
   text-align: left;
+
+  position: relative;
 }
 
 .dropDownOpened {
@@ -64,13 +64,25 @@
   flex-direction: column;
   /* row-gap: 12px; */
 
+  width: 100%;
+
   font-size: inherit;
   line-height: inherit;
   text-align: inherit;
 
+  color: #11101c4d;
+
   opacity: 0;
 
   transition: opacity var(--transition-options);
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  transform: translateY(calc(100% + 8px));
+
+  z-index: 1000;
 
   & > li {
     cursor: pointer;
@@ -93,4 +105,8 @@
   & > li:hover {
     background-color: #cccccc;
   }
+}
+
+.selectedItem {
+  color: var(--text-color);
 }

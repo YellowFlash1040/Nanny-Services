@@ -1,0 +1,85 @@
+@import url('./assets/fonts/fonts.css');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  list-style-type: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  padding: 0;
+
+  border: none;
+  cursor: pointer;
+
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  font-family: 'Helvetica Neue', sans-serif;
+
+  background-color: #f5f6fb;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+main {
+  flex: 1;
+}
+
+:root {
+  --transition-options: 250ms ease-in-out;
+
+  --main-color: #f03f3b;
+  --second-color: #f03f3b33;
+  --text-color: #11101c;
+  --text-color-light: #fbfbfb;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

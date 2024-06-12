@@ -110,3 +110,21 @@
 .selectedItem {
   color: var(--text-color);
 }
+
+/* .optionButton {
+  background-color: transparent;
+  width: 100%;
+
+  border-radius: 14px;
+
+  transition: background-color var(--transition-options-fast);
+
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+
+  &:hover,
+  &:focus {
+    background-color: #cccccc;
+  }
+} */

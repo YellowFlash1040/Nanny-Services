@@ -40,13 +40,11 @@ const SortByDropDown = ({ className }: SortByDropDownProps) => {
   }, []);
 
   const handleItemSelect = (event: MouseEvent<HTMLUListElement>) => {
-    const target = event.target as HTMLLIElement;
-    if (target.tagName === 'LI') {
-      setIsOpened(false);
+    setIsOpened(false);
 
-      const selectedItemValue = target.textContent;
-      setSelectedItem(selectedItemValue!);
-    }
+    const target = event.target as Node;
+    const selectedItemValue = target.textContent;
+    setSelectedItem(selectedItemValue!);
   };
 
   return (
@@ -68,7 +66,9 @@ const SortByDropDown = ({ className }: SortByDropDownProps) => {
             key={option}
             className={clsx({ [s.selectedItem]: selectedItem === option })}
           >
+            {/* <button className={s.optionButton} type="button"> */}
             {option}
+            {/* </button> */}
           </li>
         ))}
       </ul>

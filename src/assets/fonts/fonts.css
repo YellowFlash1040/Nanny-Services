@@ -1,20 +1,20 @@
 @font-face {
-  font-family: 'HelveticaNeue';
+  font-family: 'Helvetica Neue';
   font-style: normal;
   font-weight: 400;
-  src: local('HelveticaNeue'), url('./HelveticaNeueRoman.otf') format('otf');
+  src: local('Helvetica Neue'), url('./HelveticaNeueRoman.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'HelveticaNeue';
+  font-family: 'Helvetica Neue';
   font-style: normal;
   font-weight: 500;
-  src: local('HelveticaNeue'), url('./HelveticaNeueMedium.otf') format('otf');
+  src: local('Helvetica Neue'), url('./HelveticaNeueMedium.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'HelveticaNeue';
+  font-family: 'Helvetica Neue';
   font-style: normal;
   font-weight: 700;
-  src: local('HelveticaNeue'), url('./HelveticaNeueBold.otf') format('otf');
+  src: local('Helvetica Neue'), url('./HelveticaNeueBold.otf') format('opentype');
 }

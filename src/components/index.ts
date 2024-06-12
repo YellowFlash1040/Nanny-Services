@@ -9,3 +9,6 @@ export { default as Filters } from './Filters/Filters';
 export { default as UserPanel } from './UserPanel/UserPanel';
 export { default as Navigation } from './Navigation/Navigation';
 export { default as Logo } from './Logo/Logo';
+export { default as RegistrationButton } from './RegistrationButton/RegistrationButton';
+export { default as GetStartedButton } from './GetStartedButton/GetStartedButton';
+export { default as ExperiencedNanniesCard } from './ExperiencedNanniesCard/ExperiencedNanniesCard';

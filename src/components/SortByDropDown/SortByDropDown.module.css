@@ -1,8 +1,4 @@
 .dropDown {
-  /* display: flex;
-  flex-direction: column;
-  row-gap: 8px; */
-
   width: 226px;
 
   font-size: 18px;
@@ -58,11 +54,11 @@
   border-radius: 14px;
   border: none;
 
-  /* padding: 14px 18px 18px 18px; */
+  padding-top: 8px;
+  padding-bottom: 12px;
 
   display: flex;
   flex-direction: column;
-  /* row-gap: 12px; */
 
   width: 100%;
 
@@ -83,26 +79,16 @@
   transform: translateY(calc(100% + 8px));
 
   z-index: 1000;
+}
 
-  & > li {
-    cursor: pointer;
+.optionsListItem {
+  cursor: pointer;
 
-    border-radius: 14px;
+  border-radius: 14px;
 
-    padding: 6px 18px;
+  transition: background-color var(--transition-options-fast);
 
-    transition: background-color var(--transition-options-fast);
-  }
-
-  & > li:first-child {
-    padding: 14px 18px 6px 18px;
-  }
-
-  & > li:last-child {
-    padding: 6px 18px 18px 18px;
-  }
-
-  & > li:hover {
+  &:hover {
     background-color: #cccccc;
   }
 }
@@ -111,11 +97,13 @@
   color: var(--text-color);
 }
 
-/* .optionButton {
+.optionButton {
   background-color: transparent;
   width: 100%;
 
   border-radius: 14px;
+
+  padding: 6px 18px;
 
   transition: background-color var(--transition-options-fast);
 
@@ -127,4 +115,4 @@
   &:focus {
     background-color: #cccccc;
   }
-} */
+}

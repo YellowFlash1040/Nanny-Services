@@ -30,6 +30,8 @@
     background-color: transparent;
 
     transition: background-color var(--transition-options);
+
+    pointer-events: none;
   }
 
   & > a:global(.active)::after {

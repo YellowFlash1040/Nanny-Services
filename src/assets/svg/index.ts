@@ -5,6 +5,7 @@ import CheckmarkIcon from './Checkmark.svg?react';
 import MapPinIcon from './MapPin.svg?react';
 import StarIcon from './Star.svg?react';
 import HeartIcon from './Heart.svg?react';
+import CrossIcon from './Cross.svg?react';
 
 export {
   UserProfileIcon,
@@ -13,5 +14,6 @@ export {
   CheckmarkIcon,
   MapPinIcon,
   StarIcon,
-  HeartIcon
+  HeartIcon,
+  CrossIcon
 };

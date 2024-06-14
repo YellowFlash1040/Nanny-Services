@@ -1,10 +1,12 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 
 import { NannyCardData } from '../../types';
-
-import s from './NannyCard.module.css';
 import { HeartIcon, MapPinIcon, StarIcon } from '../../assets';
 import { calculateAge } from '../../helpers';
+import { Modal } from '../../components';
+
+import s from './NannyCard.module.css';
 
 interface NannyCardProps {
   className?: string;
@@ -12,6 +14,8 @@ interface NannyCardProps {
 }
 
 const NannyCard = ({ className, cardData }: NannyCardProps) => {
+  const [isOpened, setIsOpened] = useState(false);
+
   return (
     <div className={clsx(className, s.card)}>
       <ul className={s.mainInfoList}>
@@ -62,8 +66,17 @@ const NannyCard = ({ className, cardData }: NannyCardProps) => {
         </ul>
         <p className={s.aboutParagraph}>{cardData.about}</p>
 
-        <button className={s.readMoreButton}>Read more</button>
+        <button
+          className={s.readMoreButton}
+          type="button"
+          onClick={() => setIsOpened(true)}
+        >
+          Read more
+        </button>
       </div>
+      <Modal isOpened={isOpened} closeModal={() => setIsOpened(false)}>
+        ok
+      </Modal>
     </div>
   );
 };

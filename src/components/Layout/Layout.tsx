@@ -10,6 +10,7 @@ const Layout = () => {
       <Suspense fallback={<PageLoader />}>
         <Outlet />
       </Suspense>
+      <div id="modal"></div>
     </>
   );
 };

@@ -1,0 +1,52 @@
+.backdrop {
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(22, 22, 22, 0.8);
+
+  opacity: 0;
+
+  transition: opacity var(--transition-options);
+}
+
+.opened {
+  opacity: 1;
+}
+
+.container {
+  background-color: var(--text-color-light);
+
+  border-radius: 30px;
+
+  padding: 64px;
+
+  position: relative;
+}
+
+.closeButton {
+  background-color: transparent;
+  stroke: var(--text-color);
+
+  display: flex;
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  transition: stroke var(--transition-options);
+
+  &:hover,
+  &:focus {
+    stroke: var(--main-color);
+  }
+}

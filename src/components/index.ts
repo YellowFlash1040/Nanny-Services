@@ -14,3 +14,4 @@ export { default as GetStartedButton } from './GetStartedButton/GetStartedButton
 export { default as ExperiencedNanniesCard } from './ExperiencedNanniesCard/ExperiencedNanniesCard';
 export { default as NannyCard } from './NannyCard/NannyCard';
 export { default as LoadMoreButton } from './LoadMoreButton/LoadMoreButton';
+export { default as Modal } from './Modal/Modal';

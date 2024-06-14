@@ -1,0 +1,16 @@
+.loadMoreButton {
+  padding: 14px 40px;
+
+  background-color: var(--main-color);
+  color: var(--text-color-light);
+
+  border-radius: 30px;
+
+  transition: background-color var(--transition-options), color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    background-color: var(--text-color-light);
+    color: var(--main-color);
+  }
+}

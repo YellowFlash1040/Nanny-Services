@@ -12,3 +12,5 @@ export { default as Logo } from './Logo/Logo';
 export { default as RegistrationButton } from './RegistrationButton/RegistrationButton';
 export { default as GetStartedButton } from './GetStartedButton/GetStartedButton';
 export { default as ExperiencedNanniesCard } from './ExperiencedNanniesCard/ExperiencedNanniesCard';
+export { default as NannyCard } from './NannyCard/NannyCard';
+export { default as LoadMoreButton } from './LoadMoreButton/LoadMoreButton';

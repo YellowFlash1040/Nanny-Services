@@ -5,4 +5,14 @@
   border-radius: 30px;
 
   background-color: transparent;
+
+  transition: background-color var(--transition-options), color var(--transition-options),
+    border-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    background-color: var(--text-color-light);
+    color: var(--main-color);
+    border-color: var(--main-color);
+  }
 }

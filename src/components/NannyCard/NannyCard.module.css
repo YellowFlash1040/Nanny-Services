@@ -1,0 +1,167 @@
+.card {
+  background-color: var(--text-color-light);
+
+  border-radius: 24px;
+
+  width: 1184px;
+  max-width: 1184px;
+  height: 318px;
+
+  padding: 24px;
+
+  position: relative;
+
+  display: flex;
+  column-gap: 24px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.avatarContainer {
+  border: 2px solid #f03f3b33;
+  border-radius: 30px;
+
+  width: 120px;
+  min-width: 120px;
+  height: 120px;
+
+  padding: 10px;
+
+  position: relative;
+  &::before {
+    position: absolute;
+    top: 9px;
+    right: 14px;
+
+    width: 14px;
+    height: 14px;
+
+    content: '';
+
+    border-radius: 50%;
+    border: 2px solid var(--text-color-light);
+
+    background-color: #38cd3e;
+  }
+}
+
+.avatar {
+  border-radius: 15px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.nannyLabel {
+  color: #8a8a89;
+
+  margin-bottom: 8px;
+}
+
+.nannyName {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+
+  margin-bottom: 24px;
+}
+
+.profileInfoList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-bottom: 24px;
+}
+
+.profileInfoListItem {
+  background-color: var(--bodyBackground-color);
+  color: #8a8a89;
+
+  border-radius: 24px;
+
+  padding: 8px 16px;
+
+  & > span {
+    color: var(--text-color);
+  }
+
+  & > .age {
+    text-decoration: underline;
+  }
+
+  & > .characters {
+    text-transform: capitalize;
+  }
+}
+
+.aboutParagraph {
+  color: #11101c80;
+
+  font-weight: 400;
+  line-height: 1.25;
+
+  margin-bottom: 14px;
+}
+
+.readMoreButton {
+  background-color: transparent;
+
+  text-decoration: underline;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.mainInfoList {
+  display: flex;
+  column-gap: 32px;
+
+  position: absolute;
+  top: 24px;
+  right: 98px;
+}
+
+.mainInfoListItem {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  position: relative;
+  &:not(:first-child)::before {
+    position: absolute;
+    top: 50%;
+    left: -17px;
+
+    width: 1px;
+    height: 16px;
+
+    content: '';
+
+    transform: translateY(-50%);
+
+    background-color: #11101c33;
+  }
+}
+
+.moneySpan {
+  color: #38cd3e;
+}
+
+.likeButton {
+  display: flex;
+
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  background-color: transparent;
+  stroke: var(--text-color);
+
+  transition: stroke var(--transition-options);
+
+  &:hover,
+  &:focus {
+    stroke: var(--main-color);
+  }
+}

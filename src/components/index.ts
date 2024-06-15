@@ -15,3 +15,6 @@ export { default as ExperiencedNanniesCard } from './ExperiencedNanniesCard/Expe
 export { default as NannyCard } from './NannyCard/NannyCard';
 export { default as LoadMoreButton } from './LoadMoreButton/LoadMoreButton';
 export { default as Modal } from './Modal/Modal';
+export { default as Reviews } from './Reviews/Reviews';
+export { default as Button } from './Button/Button';
+export { default as NannyCardExtension } from './NannyCardExtension/NannyCardExtension';

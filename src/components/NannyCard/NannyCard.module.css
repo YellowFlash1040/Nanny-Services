@@ -52,6 +52,12 @@
   object-fit: cover;
 }
 
+.profileInfoAndReviewsContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px;
+}
+
 .nannyLabel {
   color: #8a8a89;
 
@@ -112,7 +118,7 @@
   line-height: 1.5;
 }
 
-.mainInfoList {
+.sortingInfoList {
   display: flex;
   column-gap: 32px;
 
@@ -121,7 +127,7 @@
   right: 98px;
 }
 
-.mainInfoListItem {
+.sortingInfoListItem {
   display: flex;
   align-items: center;
   column-gap: 8px;

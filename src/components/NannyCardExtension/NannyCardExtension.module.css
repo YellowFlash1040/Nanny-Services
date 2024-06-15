@@ -1,0 +1,20 @@
+.reviews {
+  margin-bottom: 48px;
+}
+
+.buttonsContainer {
+  display: flex;
+  column-gap: 20px;
+}
+
+.makeAnAppointmentButton {
+  padding: 14px 28px;
+}
+
+.readLessButton {
+  background-color: transparent;
+
+  text-decoration: underline;
+  font-weight: 500;
+  line-height: 1.5;
+}

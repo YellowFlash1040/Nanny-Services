@@ -37,9 +37,21 @@ const Modal = ({ className, children, closeModal, isOpened }: ModalProps) => {
     };
   }, [closeModal]);
 
+  useEffect(() => {
+    if (isOpened) {
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.paddingRight = '0';
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpened]);
+
   return createPortal(
     <div
-      className={clsx(s.backdrop, { [s.opened]: isOpened, 'visually-hidden': !isOpened })}
+      className={clsx(s.backdrop, { [s.opened]: isOpened })}
       onClick={handleClickOnBackdrop}
     >
       <div className={clsx(className, s.container)}>

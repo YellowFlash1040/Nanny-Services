@@ -1,0 +1,72 @@
+.loginLabel {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+  margin-bottom: 20px;
+}
+
+.greetings {
+  font-size: 16px;
+  line-height: 1.25;
+
+  color: #11101c80;
+
+  margin-bottom: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  font-size: 16px;
+  line-height: 1.25;
+
+  background-color: transparent;
+
+  border: 1px solid #11101c1a;
+  border-radius: 12px;
+
+  padding: 15px 18px;
+
+  transition: border-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    border-color: var(--text-color);
+  }
+}
+
+.formField:not(:last-child) {
+  margin-bottom: 18px;
+}
+
+.formField:nth-last-child(2) {
+  margin-bottom: 40px;
+}
+
+.passwordFieldWrapper {
+  position: relative;
+}
+
+.eyeButton {
+  display: flex;
+
+  position: absolute;
+  top: 50%;
+  right: 18px;
+
+  transform: translateY(-50%);
+
+  background-color: transparent;
+}
+
+.submitButton {
+  padding: 16px 0;
+  width: 100%;
+
+  text-transform: capitalize;
+}

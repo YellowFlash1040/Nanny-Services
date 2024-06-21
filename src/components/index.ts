@@ -21,3 +21,5 @@ export { default as NannyCardExtension } from './NannyCardExtension/NannyCardExt
 export { default as MakeAnAppointmentPopup } from './MakeAnAppointmentPopup/MakeAnAppointmentPopup';
 export { default as TimePicker } from './TimePicker/TimePicker';
 export { default as AppointmentForm } from './AppointmentForm/AppointmentForm';
+export { default as LoginForm } from './LoginForm/LoginForm';
+export { default as RegisterForm } from './RegisterForm/RegisterForm';

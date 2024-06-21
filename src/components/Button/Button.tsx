@@ -5,18 +5,24 @@ import s from './Button.module.css';
 
 interface ButtonProps {
   className?: string;
+  type?: 'button' | 'submit';
   children: ReactNode;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button = ({ className, children, onClick }: ButtonProps) => {
+const Button = ({
+  className,
+  children,
+  onClick = () => {},
+  type = 'button'
+}: ButtonProps) => {
   const handleOnClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.currentTarget.blur();
     onClick(event);
   };
 
   return (
-    <button className={clsx(className, s.button)} type="button" onClick={handleOnClick}>
+    <button className={clsx(className, s.button)} type={type} onClick={handleOnClick}>
       {children}
     </button>
   );

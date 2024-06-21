@@ -87,3 +87,8 @@ main {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.theme-transition-effect {
+  transition: background-color var(--transition-options), color var(--transition-options),
+    stroke var(--transition-options), fill var(--transition-options);
+}

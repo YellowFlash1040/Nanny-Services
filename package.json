@@ -1,5 +1,5 @@
 {
-  "name": "project-name",
+  "name": "nanny-services",
   "author": "Andrii-Kovtunets <andrejkovtunec@gmail.com>",
   "license": "MIT",
   "type": "module",
@@ -10,18 +10,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.6.0",
     "axios": "^1.6.8",
     "clsx": "^2.1.1",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.52.0",
     "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.23.1",
-    "vite-plugin-svgr": "^4.2.0"
+    "react-transition-group": "^4.4.5",
+    "vite-plugin-svgr": "^4.2.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-transition-group": "^4.4.10",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",

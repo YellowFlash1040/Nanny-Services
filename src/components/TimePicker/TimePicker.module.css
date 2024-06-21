@@ -1,0 +1,127 @@
+.container {
+  position: relative;
+}
+
+.button {
+  padding: 16px 18px;
+
+  border-radius: 12px;
+  border: 1px solid #11101c1a;
+
+  background-color: transparent;
+
+  border-radius: 12px;
+
+  width: var(--width, 232px);
+  height: var(--height, 52px);
+
+  text-align: left;
+
+  transition: border-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    border-color: var(--text-color);
+  }
+
+  position: relative;
+  & > svg {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+
+    transform: translateY(-50%);
+
+    stroke: var(--text-color);
+  }
+}
+
+.dropDown {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  transform: translateY(calc(100% + 8px));
+
+  height: 180px;
+
+  padding: 16px;
+
+  box-shadow: 0px 20px 69px 0px #00000012;
+
+  background-color: #ffffff;
+
+  border-radius: 12px;
+
+  opacity: 0;
+
+  transition: opacity var(--transition-options);
+
+  width: 151px;
+  height: 180px;
+
+  pointer-events: none;
+}
+
+.dropDownOpened {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.timeOptionsList {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+
+  overflow-y: scroll;
+
+  height: 108px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
+.timeOption {
+  & > button {
+    background-color: transparent;
+
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2px;
+
+    width: 100%;
+
+    color: #11101c4d;
+
+    transition: color var(--transition-options);
+
+    & > span {
+      display: inline-block;
+      padding: 2px 10px;
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--text-color);
+    }
+  }
+}
+
+.meetingTimeLabel {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  margin-bottom: 16px;
+}

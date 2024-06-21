@@ -18,3 +18,6 @@ export { default as Modal } from './Modal/Modal';
 export { default as Reviews } from './Reviews/Reviews';
 export { default as Button } from './Button/Button';
 export { default as NannyCardExtension } from './NannyCardExtension/NannyCardExtension';
+export { default as MakeAnAppointmentPopup } from './MakeAnAppointmentPopup/MakeAnAppointmentPopup';
+export { default as TimePicker } from './TimePicker/TimePicker';
+export { default as AppointmentForm } from './AppointmentForm/AppointmentForm';

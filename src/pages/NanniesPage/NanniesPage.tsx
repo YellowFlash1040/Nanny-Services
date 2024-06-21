@@ -13,10 +13,25 @@ const NanniesPage = () => {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<Filter>(Filter.ShowAll);
   const [pagesCount] = useState(nanniesData.length / 3 - 1);
+  const [likedNannies, setLikedNannies] = useState<string[]>(
+    JSON.parse(localStorage.getItem('likedNannies') || '[]')
+  );
 
   const handleLoadMoreButtonClick = () => {
     setPage((prev) => prev + 1);
   };
+
+  const handleOnLikeClick = (nanny: NannyCardData, isLiked: boolean) => {
+    if (isLiked) {
+      setLikedNannies([...likedNannies, nanny.name]);
+    } else {
+      setLikedNannies(likedNannies.filter((n) => n !== nanny.name));
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem('likedNannies', JSON.stringify(likedNannies));
+  }, [likedNannies]);
 
   useEffect(() => {
     const filteredNannies = filterNannies(
@@ -39,7 +54,11 @@ const NanniesPage = () => {
             <ul className={s.nanniesList}>
               {nannies.map((data) => (
                 <li key={filter + data.name}>
-                  <NannyCard cardData={data} />
+                  <NannyCard
+                    cardData={data}
+                    onLikeClick={handleOnLikeClick}
+                    defaultIsLiked={likedNannies.some((nanny) => nanny === data.name)}
+                  />
                 </li>
               ))}
             </ul>

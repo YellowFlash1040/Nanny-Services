@@ -1,3 +1,7 @@
+.dropDown {
+  position: relative;
+}
+
 .userProfileButton {
   background-color: transparent;
 
@@ -21,4 +25,69 @@
 
   stroke: var(--main-color);
   fill: var(--main-color);
+}
+
+.optionsList {
+  background-color: var(--main-background-color);
+
+  border-radius: 14px;
+  border: none;
+
+  padding-top: 8px;
+  padding-bottom: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 200%;
+
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+
+  color: #11101c4d;
+  box-shadow: 0px 20px 69px 0px #00000012;
+
+  opacity: 0;
+
+  transition: opacity var(--transition-options);
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  transform: translateY(calc(100% + 8px)) translateX(-50%);
+
+  z-index: 1000;
+
+  pointer-events: none;
+}
+
+.optionsListOpened {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.optionButton {
+  background-color: transparent;
+  width: 100%;
+
+  border-radius: 14px;
+
+  padding: 6px 18px;
+
+  transition: background-color var(--transition-options-fast);
+
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+
+  &:hover,
+  &:focus {
+    background-color: #cccccc;
+  }
+}
+
+.selectedItem {
+  color: var(--text-color);
 }

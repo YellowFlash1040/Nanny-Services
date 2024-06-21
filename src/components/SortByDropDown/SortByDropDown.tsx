@@ -60,10 +60,7 @@ const SortByDropDown = ({
         {selectedItem}
         <ChevronIcon width={20} height={20} />
       </button>
-      <ul
-        className={clsx(s.optionsList, { 'visually-hidden': !isOpened })}
-        onClick={handleItemSelect}
-      >
+      <ul className={s.optionsList} onClick={handleItemSelect}>
         {optionsList.map((option) => (
           <li
             key={option}

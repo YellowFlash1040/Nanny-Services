@@ -6,6 +6,7 @@ import MapPinIcon from './MapPin.svg?react';
 import StarIcon from './Star.svg?react';
 import HeartIcon from './Heart.svg?react';
 import CrossIcon from './Cross.svg?react';
+import ClockIcon from './Clock.svg?react';
 
 export {
   UserProfileIcon,
@@ -15,5 +16,6 @@ export {
   MapPinIcon,
   StarIcon,
   HeartIcon,
-  CrossIcon
+  CrossIcon,
+  ClockIcon
 };

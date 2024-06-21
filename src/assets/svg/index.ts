@@ -7,6 +7,8 @@ import StarIcon from './Star.svg?react';
 import HeartIcon from './Heart.svg?react';
 import CrossIcon from './Cross.svg?react';
 import ClockIcon from './Clock.svg?react';
+import EyeIcon from './Eye.svg?react';
+import EyeOffIcon from './EyeOff.svg?react';
 
 export {
   UserProfileIcon,
@@ -17,5 +19,7 @@ export {
   StarIcon,
   HeartIcon,
   CrossIcon,
-  ClockIcon
+  ClockIcon,
+  EyeIcon,
+  EyeOffIcon
 };

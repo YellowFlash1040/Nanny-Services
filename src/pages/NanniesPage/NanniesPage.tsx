@@ -38,7 +38,7 @@ const NanniesPage = () => {
           {(nannies.length > 0 && (
             <ul className={s.nanniesList}>
               {nannies.map((data) => (
-                <li key={data.name}>
+                <li key={filter + data.name}>
                   <NannyCard cardData={data} />
                 </li>
               ))}

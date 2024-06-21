@@ -162,13 +162,19 @@
 
   background-color: transparent;
   stroke: var(--text-color);
+  fill: transparent;
 
-  transition: stroke var(--transition-options);
+  transition: stroke var(--transition-options), fill var(--transition-options);
 
   &:hover,
   &:focus {
     stroke: var(--main-color);
   }
+}
+
+.filledHeart {
+  fill: var(--main-color);
+  stroke: var(--main-color);
 }
 
 .modal {

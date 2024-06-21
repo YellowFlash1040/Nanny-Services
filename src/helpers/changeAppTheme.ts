@@ -17,7 +17,6 @@ const addTransitionEffect = () => {
 
 export const changeAppTheme = (newTheme: Theme) => {
   addTransitionEffect();
-  console.log('Theme: ', newTheme);
 
   if (newTheme === Theme.Red) {
     changeColorVariable('--main-color', '#f03f3b');

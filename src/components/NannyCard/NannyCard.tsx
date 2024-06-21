@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 
 import { NannyCardData } from '../../types';
 import { HeartIcon, MapPinIcon, StarIcon } from '../../assets';
@@ -10,12 +10,26 @@ import s from './NannyCard.module.css';
 
 interface NannyCardProps {
   className?: string;
+  defaultIsLiked?: boolean;
+  onLikeClick?: (cardData: NannyCardData, isLiked: boolean) => void;
   cardData: NannyCardData;
 }
 
-const NannyCard = ({ className, cardData }: NannyCardProps) => {
-  const [isOpened, setIsOpened] = useState(false);
+const NannyCard = ({
+  className,
+  cardData,
+  defaultIsLiked = false,
+  onLikeClick = () => {}
+}: NannyCardProps) => {
+  const [isModalOpened, setIsModalOpened] = useState(false);
   const [isReviewsOpened, setIsReviewsOpened] = useState(false);
+  const [isLiked, setIsLiked] = useState(defaultIsLiked);
+
+  const handleOnLikeClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event.currentTarget.blur();
+    setIsLiked(!isLiked);
+    onLikeClick(cardData, !isLiked);
+  };
 
   return (
     <>
@@ -34,7 +48,11 @@ const NannyCard = ({ className, cardData }: NannyCardProps) => {
             <span className={s.moneySpan}>{cardData.price_per_hour}$</span>
           </li>
         </ul>
-        <button className={s.likeButton} type="button">
+        <button
+          className={clsx(s.likeButton, { [s.filledHeart]: isLiked })}
+          type="button"
+          onClick={handleOnLikeClick}
+        >
           <HeartIcon width={26} height={26} />
         </button>
         <div className={s.avatarContainer}>
@@ -84,7 +102,7 @@ const NannyCard = ({ className, cardData }: NannyCardProps) => {
             <NannyCardExtension
               reviews={cardData.reviews}
               closeExtension={() => setIsReviewsOpened(false)}
-              openModal={() => setIsOpened(true)}
+              openModal={() => setIsModalOpened(true)}
             />
           )}
         </div>
@@ -92,8 +110,8 @@ const NannyCard = ({ className, cardData }: NannyCardProps) => {
 
       <Modal
         className={s.modal}
-        isOpened={isOpened}
-        closeModal={() => setIsOpened(false)}
+        isOpened={isModalOpened}
+        closeModal={() => setIsModalOpened(false)}
       >
         <MakeAnAppointmentPopup name={cardData.name} avatar={cardData.avatar_url} />
       </Modal>

@@ -19,7 +19,7 @@
 }
 
 .avatarContainer {
-  border: 2px solid #f03f3b33;
+  border: 2px solid var(--second-color);
   border-radius: 30px;
 
   width: 120px;
@@ -169,4 +169,8 @@
   &:focus {
     stroke: var(--main-color);
   }
+}
+
+.modal {
+  width: 600px;
 }

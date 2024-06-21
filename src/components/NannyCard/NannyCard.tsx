@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { NannyCardData } from '../../types';
 import { HeartIcon, MapPinIcon, StarIcon } from '../../assets';
 import { calculateAge } from '../../helpers';
-import { Modal, NannyCardExtension } from '../../components';
+import { MakeAnAppointmentPopup, Modal, NannyCardExtension } from '../../components';
 
 import s from './NannyCard.module.css';
 
@@ -89,8 +89,13 @@ const NannyCard = ({ className, cardData }: NannyCardProps) => {
           )}
         </div>
       </div>
-      <Modal isOpened={isOpened} closeModal={() => setIsOpened(false)}>
-        ok
+
+      <Modal
+        className={s.modal}
+        isOpened={isOpened}
+        closeModal={() => setIsOpened(false)}
+      >
+        <MakeAnAppointmentPopup name={cardData.name} avatar={cardData.avatar_url} />
       </Modal>
     </>
   );

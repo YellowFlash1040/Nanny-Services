@@ -1,0 +1,83 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input,
+form textarea {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+form > .formField {
+  margin-bottom: 16px;
+}
+
+form textarea {
+  height: 116px;
+
+  resize: none;
+
+  margin-bottom: 40px;
+}
+
+form input,
+form textarea {
+  background-color: transparent;
+
+  padding: 15px 18px;
+
+  width: 100%;
+
+  border-radius: 12px;
+  border: 1px solid #11101c1a;
+
+  transition: border-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    border-color: var(--text-color);
+  }
+
+  &::placeholder {
+    color: #11101c;
+  }
+}
+
+.twoFieldsContainer {
+  display: flex;
+  column-gap: 8px;
+
+  margin-bottom: 16px;
+}
+
+.sendButton {
+  padding: 16px 0;
+  width: 100%;
+}
+
+.timePicker {
+  z-index: 10001;
+}
+
+.formField {
+  position: relative;
+}
+
+.errorSpan {
+  display: block;
+
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+
+  transform: translateY(50%);
+
+  font-size: 12px;
+
+  border-radius: 12px;
+  padding: 2px 6px;
+
+  background-color: var(--text-color-light);
+  color: red;
+}

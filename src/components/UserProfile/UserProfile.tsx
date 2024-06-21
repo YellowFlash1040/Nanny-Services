@@ -15,10 +15,14 @@ const UserProfile = ({ className }: UserProfileProps) => {
   const optionsList = useRef(['Red', 'Blue', 'Green']);
   const popupRef = useRef<HTMLDivElement>(null);
   const [isOpened, setIsOpened] = useState(false);
-  const [theme, setTheme] = useState<Theme>(Theme.Red);
+  const [theme, setTheme] = useState<Theme>(
+    JSON.parse(localStorage.getItem('theme') || '"Red"')
+  );
 
   const handleItemSelect = (event: MouseEvent) => {
-    setTheme((event.target as HTMLButtonElement).textContent as Theme);
+    const newTheme = (event.target as HTMLButtonElement).textContent as Theme;
+    localStorage.setItem('theme', JSON.stringify(newTheme));
+    setTheme(newTheme);
   };
 
   useEffect(() => {

@@ -12,7 +12,7 @@ const NanniesPage = () => {
   const [nannies, setNannies] = useState<NannyCardData[]>([]);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<Filter>(Filter.ShowAll);
-  const [pagesCount] = useState(nanniesData.length / 3 - 1);
+  const [pagesCount] = useState(nanniesData.length / 3);
   const [likedNannies, setLikedNannies] = useState<string[]>(
     JSON.parse(localStorage.getItem('likedNannies') || '[]')
   );

@@ -69,8 +69,6 @@ main {
   --transition-options: 250ms ease-in-out;
   --transition-options-fast: 100ms ease-in-out;
 
-  --main-color: #f03f3b;
-  --second-color: #f03f3b33;
   --text-color: #11101c;
   --text-color-light: #fbfbfb;
   --bodyBackground-color: #f3f3f3;

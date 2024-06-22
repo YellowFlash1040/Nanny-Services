@@ -1,13 +1,32 @@
 import { useState } from 'react';
 import clsx from 'clsx';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { EyeIcon, EyeOffIcon } from '../../assets';
 import { Button } from '../../components';
+
+import schema from './schema';
 
 import s from './LoginForm.module.css';
 
 const LoginForm = () => {
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm({
+    defaultValues: {},
+    resolver: yupResolver(schema)
+  });
+
+  const handleOnSubmit = (data: object) => {
+    console.log(data);
+    reset();
+  };
 
   return (
     <>
@@ -16,10 +35,22 @@ const LoginForm = () => {
         Welcome back! Please enter your credentials to access your account and continue
         your babysitter search.
       </p>
-      <form>
-        <input className={s.formField} type="email" placeholder="Email" />
+      <form onSubmit={handleSubmit(handleOnSubmit)}>
+        <label className={s.formField}>
+          <input type="email" placeholder="Email" {...register('email')} />
+          {errors.email && <span className={s.errorSpan}>{errors.email.message}</span>}
+        </label>
         <div className={clsx(s.formField, s.passwordFieldWrapper)}>
-          <input type={isPasswordHidden ? 'password' : 'text'} placeholder="Password" />
+          <label>
+            <input
+              type={isPasswordHidden ? 'password' : 'text'}
+              placeholder="Password"
+              {...register('password')}
+            />
+            {errors.password && (
+              <span className={s.errorSpan}>{errors.password.message}</span>
+            )}
+          </label>
           <button
             className={s.eyeButton}
             type="button"

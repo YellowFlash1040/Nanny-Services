@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, useForm } from 'react-hook-form';
 
 import { Button, TimePicker } from '../../components';
 
 import schema from './shema';
 
 import s from './AppointmentForm.module.css';
-import { Controller, useForm } from 'react-hook-form';
 
 // interface AppointmentFormProps {}
 

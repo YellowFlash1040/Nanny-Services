@@ -1,7 +1,68 @@
-.helloSection {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.section {
+  padding: 163px 0;
 
-  height: 100%;
+  color: var(--text-color-light);
+}
+
+.container {
+  width: 1440px;
+}
+
+.title {
+  font-size: 70px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+
+  max-width: 517px;
+
+  margin-bottom: 28px;
+}
+
+.slogan {
+  font-size: 28px;
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+
+  margin-bottom: 64px;
+}
+
+.redBackground {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 1376px;
+  height: 736px;
+
+  border-radius: 30px;
+
+  background-color: var(--main-color);
+
+  z-index: -1;
+}
+
+.heroImage {
+  background: linear-gradient(#12141799, #12141799),
+    url('../../assets/images/hero-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  width: 699px;
+  height: 736px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  border-radius: 0px 30px 30px 0px;
+}
+
+.experiencedNanniesCard {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
 }

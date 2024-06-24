@@ -1,27 +1,36 @@
 import { useEffect, useState } from 'react';
 
-import { Filters, LoadMoreButton, NannyCard, PageContainer } from '../../components';
+import {
+  DataLoader,
+  Filters,
+  LoadMoreButton,
+  NannyCard,
+  PageContainer
+} from '../../components';
 import { filterNannies } from '../../helpers';
 import { Filter, NannyCardData } from '../../types';
-
-import { nanniesData } from '../../data';
+import { fetchCollection } from '../../fireBase';
+import { dataCollectionName, numberOfNanniesPerPage } from '../../constants';
+import { useAppContext } from '../../hooks';
 
 import s from './NanniesPage.module.css';
 
 const NanniesPage = () => {
   const [nannies, setNannies] = useState<NannyCardData[]>([]);
+  const [filteredNannies, setFilteredNannies] = useState<NannyCardData[]>([]);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState<Filter>(Filter.ShowAll);
-  const [pagesCount] = useState(nanniesData.length / 3);
-  const [likedNannies, setLikedNannies] = useState<string[]>(
-    JSON.parse(localStorage.getItem('likedNannies') || '[]')
-  );
+  const [pagesCount, setPagesCount] = useState(0);
+  const { userData } = useAppContext();
+  const [likedNannies, setLikedNannies] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleLoadMoreButtonClick = () => {
     setPage((prev) => prev + 1);
   };
 
   const handleOnLikeClick = (nanny: NannyCardData, isLiked: boolean) => {
+    console.log(nanny.name, isLiked);
     if (isLiked) {
       setLikedNannies([...likedNannies, nanny.name]);
     } else {
@@ -30,40 +39,73 @@ const NanniesPage = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem('likedNannies', JSON.stringify(likedNannies));
-  }, [likedNannies]);
+    const fetchNannies = async () => {
+      setIsLoading(true);
+      const data = (await fetchCollection(dataCollectionName)) as NannyCardData[];
+      setNannies(data);
+      setIsLoading(false);
+    };
+
+    fetchNannies();
+  }, []);
 
   useEffect(() => {
-    const filteredNannies = filterNannies(
-      nanniesData.map((n) => n),
+    const result = filterNannies(
+      nannies.map((n) => n),
       filter
     );
-    setNannies(filteredNannies.slice(0, page * 3));
-  }, [page, filter]);
+    setFilteredNannies(result.slice(0, page * numberOfNanniesPerPage));
+    setPagesCount(result.length / numberOfNanniesPerPage);
+  }, [page, filter, nannies]);
 
   useEffect(() => {
     setPage(1);
   }, [filter]);
 
+  useEffect(() => {
+    if (userData.id === '') {
+      setLikedNannies([]);
+    } else {
+      const data = JSON.parse(
+        localStorage.getItem(`likedNannies_${userData.id}`) || '[]'
+      );
+      setLikedNannies(data);
+    }
+  }, [userData.id]);
+
+  useEffect(() => {
+    if (userData.id !== '') {
+      localStorage.setItem(`likedNannies_${userData.id}`, JSON.stringify(likedNannies));
+    }
+  }, [likedNannies, userData.id]);
+
   return (
     <main>
       <section className={s.nannysSection}>
-        <PageContainer>
+        <PageContainer className={s.container}>
           <Filters className={s.filters} onChange={(filter) => setFilter(filter)} />
-          {(nannies.length > 0 && (
+          {!isLoading && filteredNannies.length > 0 && (
             <ul className={s.nanniesList}>
-              {nannies.map((data) => (
+              {filteredNannies.map((data) => (
                 <li key={filter + data.name}>
                   <NannyCard
                     cardData={data}
+                    isLiked={likedNannies.some((nanny) => nanny === data.name)}
                     onLikeClick={handleOnLikeClick}
-                    defaultIsLiked={likedNannies.some((nanny) => nanny === data.name)}
                   />
                 </li>
               ))}
             </ul>
-          )) || <p className={s.nothingFoundLabel}>{'Nothing found :('}</p>}
-          {nannies.length > 0 && page < pagesCount && (
+          )}
+          {!isLoading && filteredNannies.length === 0 && (
+            <p className={s.nothingFoundLabel}>{'Nothing found :('}</p>
+          )}
+          {isLoading && (
+            <div className={s.dataLoader}>
+              <DataLoader />
+            </div>
+          )}
+          {page < pagesCount && (
             <LoadMoreButton
               className={s.loadMoreButton}
               onClick={handleLoadMoreButtonClick}

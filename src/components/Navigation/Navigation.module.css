@@ -33,8 +33,14 @@
 
     pointer-events: none;
   }
+}
 
+.pageItemAfter {
   & > a:global(.active)::after {
     background-color: var(--text-color-light);
   }
+}
+
+.homePageNavList {
+  align-items: center;
 }

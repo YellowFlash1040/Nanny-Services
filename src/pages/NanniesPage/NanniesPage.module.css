@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.container {
+  width: 1440px;
+}
+
 .filters {
   margin-bottom: 32px;
 }
@@ -40,4 +44,12 @@
 
   font-size: 2rem;
   line-height: 1;
+}
+
+.dataLoader {
+  margin: 0 auto 40px auto;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

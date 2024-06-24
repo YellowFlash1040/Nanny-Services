@@ -1,15 +1,22 @@
 import clsx from 'clsx';
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 
 import { NannyCardData } from '../../types';
 import { HeartIcon, MapPinIcon, StarIcon } from '../../assets';
 import { calculateAge } from '../../helpers';
-import { MakeAnAppointmentPopup, Modal, NannyCardExtension } from '../../components';
+import {
+  LoginForm,
+  MakeAnAppointmentPopup,
+  Modal,
+  NannyCardExtension
+} from '../../components';
+import { useAppContext } from '../../hooks';
 
 import s from './NannyCard.module.css';
 
 interface NannyCardProps {
   className?: string;
+  isLiked?: boolean;
   defaultIsLiked?: boolean;
   onLikeClick?: (cardData: NannyCardData, isLiked: boolean) => void;
   cardData: NannyCardData;
@@ -18,18 +25,35 @@ interface NannyCardProps {
 const NannyCard = ({
   className,
   cardData,
+  isLiked,
   defaultIsLiked = false,
-  onLikeClick = () => {}
+  onLikeClick
 }: NannyCardProps) => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [isReviewsOpened, setIsReviewsOpened] = useState(false);
-  const [isLiked, setIsLiked] = useState(defaultIsLiked);
+  const [internalIsLiked, setIsLiked] = useState(defaultIsLiked);
+  const { isLoggedIn } = useAppContext();
+  const [isLoginModalOpened, setIsLoginModalOpened] = useState(false);
+  const isLikedValue = isLiked ?? internalIsLiked;
 
   const handleOnLikeClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.currentTarget.blur();
-    setIsLiked(!isLiked);
-    onLikeClick(cardData, !isLiked);
+    if (isLoggedIn) {
+      if (onLikeClick) {
+        onLikeClick(cardData, !isLiked);
+      } else {
+        setIsLiked(!isLiked);
+      }
+    } else {
+      setIsLoginModalOpened(true);
+    }
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      setIsLoginModalOpened(false);
+    }
+  }, [isLoggedIn]);
 
   return (
     <>
@@ -49,7 +73,7 @@ const NannyCard = ({
           </li>
         </ul>
         <button
-          className={clsx(s.likeButton, { [s.filledHeart]: isLiked })}
+          className={clsx(s.likeButton, { [s.filledHeart]: isLikedValue })}
           type="button"
           onClick={handleOnLikeClick}
         >
@@ -114,6 +138,13 @@ const NannyCard = ({
         closeModal={() => setIsModalOpened(false)}
       >
         <MakeAnAppointmentPopup name={cardData.name} avatar={cardData.avatar_url} />
+      </Modal>
+      <Modal
+        className={s.loginModal}
+        isOpened={isLoginModalOpened}
+        closeModal={() => setIsLoginModalOpened(false)}
+      >
+        <LoginForm />
       </Modal>
     </>
   );

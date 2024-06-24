@@ -4,6 +4,7 @@
   background-color: var(--main-color);
   color: var(--text-color-light);
 
+  border: 1px solid var(--main-color);
   border-radius: 30px;
 
   transition: background-color var(--transition-options), color var(--transition-options);

@@ -5,13 +5,18 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import { EyeIcon, EyeOffIcon } from '../../assets';
 import { Button } from '../../components';
+import { UserCredentials } from '../../types';
+import { useAppContext } from '../../hooks';
 
 import schema from './schema';
 
 import s from './LoginForm.module.css';
 
+interface LoginFormData extends UserCredentials {}
+
 const LoginForm = () => {
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
+  const { logIn } = useAppContext();
 
   const {
     register,
@@ -23,8 +28,12 @@ const LoginForm = () => {
     resolver: yupResolver(schema)
   });
 
-  const handleOnSubmit = (data: object) => {
-    console.log(data);
+  const handleOnSubmit = async (data: LoginFormData) => {
+    try {
+      await logIn(data);
+    } catch (error) {
+      console.error('Error logging in: ', error);
+    }
     reset();
   };
 

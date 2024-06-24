@@ -5,13 +5,18 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import { EyeIcon, EyeOffIcon } from '../../assets';
 import { Button } from '../../components';
+import { useAppContext } from '../../hooks';
+import { RegisterUserData } from '../../types';
 
 import schema from './schema';
 
 import s from './RegisterForm.module.css';
 
+interface RegisterFormData extends RegisterUserData {}
+
 const RegisterForm = () => {
   const [isPasswordHidden, setIsPasswordHidden] = useState(true);
+  const { signUp } = useAppContext();
 
   const {
     register,
@@ -23,8 +28,12 @@ const RegisterForm = () => {
     resolver: yupResolver(schema)
   });
 
-  const handleOnSubmit = (data: object) => {
-    console.log(data);
+  const handleOnSubmit = async (data: RegisterFormData) => {
+    try {
+      await signUp(data);
+    } catch (error) {
+      console.error('Error signing up: ', (error as Error).message);
+    }
     reset();
   };
 

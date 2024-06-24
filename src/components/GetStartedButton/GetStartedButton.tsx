@@ -1,7 +1,9 @@
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
+
+import { ArrowIcon } from '../../assets';
 
 import s from './GetStartedButton.module.css';
-import { ArrowIcon } from '../../assets';
 
 interface GetStartedButtonProps {
   className?: string;
@@ -9,10 +11,10 @@ interface GetStartedButtonProps {
 
 const GetStartedButton = ({ className }: GetStartedButtonProps) => {
   return (
-    <button type="button" className={clsx(className, s.button)}>
+    <Link to={'/nannies'} className={clsx(className, s.button)}>
       Get started
       <ArrowIcon width={18} />
-    </button>
+    </Link>
   );
 };
 

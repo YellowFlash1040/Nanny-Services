@@ -7,6 +7,8 @@
 
   padding: 17px 45px;
 
+  max-width: 231px;
+
   fill: var(--text-color-light);
 
   display: flex;
@@ -23,7 +25,8 @@
     transition: transform var(--transition-options);
   }
 
-  &:hover > svg {
+  &:hover > svg,
+  &:focus > svg {
     transform: rotate(0);
   }
 }

@@ -1,0 +1,52 @@
+.header {
+  background-color: transparent;
+  color: var(--text-color-light);
+
+  width: 1376px;
+
+  padding-top: 52px;
+  padding-bottom: 20px;
+
+  margin: 0 auto;
+
+  border-bottom: 1px solid #fbfbfb66;
+
+  z-index: 1;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 96px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+}
+
+.headerRightPartContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 533px;
+}
+
+.signInUpButtonsContainer {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.registrationButton {
+  --border-color: var(--main-color);
+}
+
+.modal {
+  width: 566px;
+}

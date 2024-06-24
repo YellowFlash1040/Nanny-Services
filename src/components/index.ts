@@ -23,3 +23,6 @@ export { default as TimePicker } from './TimePicker/TimePicker';
 export { default as AppointmentForm } from './AppointmentForm/AppointmentForm';
 export { default as LoginForm } from './LoginForm/LoginForm';
 export { default as RegisterForm } from './RegisterForm/RegisterForm';
+export { default as HomePageHeader } from './HomePageHeader/HomePageHeader';
+export { default as HomePageLayout } from './HomePageLayout/HomePageLayout';
+export { default as DataLoader } from './DataLoader/DataLoader';

@@ -13,6 +13,10 @@
   &:focus {
     background-color: var(--text-color-light);
     color: var(--main-color);
-    border-color: var(--main-color);
+    /* border-color: var(--main-color); */
   }
+}
+
+.modal {
+  width: 566px;
 }

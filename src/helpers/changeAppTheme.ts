@@ -27,5 +27,8 @@ export const changeAppTheme = (newTheme: Theme) => {
   } else if (newTheme === Theme.Green) {
     changeColorVariable('--main-color', '#103931');
     changeColorVariable('--second-color', '#10393133');
+  } else {
+    changeColorVariable('--main-color', '#f03f3b');
+    changeColorVariable('--second-color', '#f03f3b33');
   }
 };

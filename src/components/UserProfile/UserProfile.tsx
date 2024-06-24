@@ -4,6 +4,7 @@ import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { UserProfileIcon } from '../../assets';
 import { Theme } from '../../types';
 import { changeAppTheme } from '../../helpers';
+import { useAppContext } from '../../hooks';
 
 import s from './UserProfile.module.css';
 
@@ -18,6 +19,7 @@ const UserProfile = ({ className }: UserProfileProps) => {
   const [theme, setTheme] = useState<Theme>(
     JSON.parse(localStorage.getItem('theme') || '"Red"')
   );
+  const { userData } = useAppContext();
 
   const handleItemSelect = (event: MouseEvent) => {
     const newTheme = (event.target as HTMLButtonElement).textContent as Theme;
@@ -53,7 +55,7 @@ const UserProfile = ({ className }: UserProfileProps) => {
         <div className={s.avatarContainer}>
           <UserProfileIcon width={24} height={24} />
         </div>
-        <p>Ilona</p>
+        <p>{userData.name}</p>
       </button>
       <ul
         className={clsx(s.optionsList, { [s.optionsListOpened]: isOpened })}

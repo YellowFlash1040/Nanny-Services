@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 
-import s from './ExperiencedNanniesCard.module.css';
 import { CheckmarkIcon } from '../../assets';
+
+import s from './ExperiencedNanniesCard.module.css';
 
 interface ExperiencedNanniesCardProps {
   className?: string;

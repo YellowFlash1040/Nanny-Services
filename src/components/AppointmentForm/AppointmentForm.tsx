@@ -76,6 +76,7 @@ const AppointmentForm = () => {
           type="text"
           placeholder="Father's or mother's name"
           {...register('fullname')}
+          autoComplete="given-name"
         />
         {errors.fullname && (
           <span className={s.errorSpan}>{errors.fullname.message}</span>

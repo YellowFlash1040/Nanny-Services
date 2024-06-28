@@ -13,16 +13,6 @@
   align-items: center;
 
   background-color: rgba(22, 22, 22, 0.8);
-
-  opacity: 0;
-  pointer-events: none;
-
-  transition: opacity var(--transition-options);
-}
-
-.opened {
-  opacity: 1;
-  pointer-events: all;
 }
 
 .container {
@@ -33,15 +23,7 @@
   padding: 64px;
 
   position: relative;
-
-  /* opacity: 0; */
-
-  /* transition: opacity var(--transition-options); */
 }
-
-/* .opened > .container {
-  opacity: 1;
-} */
 
 .closeButton {
   background-color: transparent;
@@ -59,4 +41,26 @@
   &:focus {
     stroke: var(--main-color);
   }
+}
+
+/*Styles to animate the modal appearance. They are being used in the CSSTransition component. For more details read the official documentation. 
+Also I would like to mention an important thing that the "transition" property has to be added only to the "Active" classes. Otherwise it won't work.
+Also you can watch this playlist on YouTube, it is quite simple and good: https://www.youtube.com/playlist?list=PL6DxKON1uLOH0vVpdrZhUAVpHerNbUxfF*/
+.modalEnter {
+  opacity: 0;
+  pointer-events: none;
+}
+.modalEnterActive {
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity var(--transition-options);
+}
+.modalExit {
+  opacity: 1;
+  pointer-events: all;
+}
+.modalExitActive {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-options);
 }

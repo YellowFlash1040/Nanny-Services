@@ -1,6 +1,7 @@
 import { useEffect, ReactNode, MouseEvent, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import clsx from 'clsx';
+import { CSSTransition } from 'react-transition-group';
 
 import { CrossIcon } from '../../assets';
 
@@ -15,6 +16,7 @@ interface ModalProps {
 
 const Modal = ({ className, children, closeModal, isOpened }: ModalProps) => {
   const modalRef = useRef(document.querySelector('#modal'));
+  const nodeRef = useRef(null);
 
   const handleClickOnBackdrop = (event: MouseEvent<HTMLDivElement>) => {
     const { target, currentTarget } = event;
@@ -50,17 +52,28 @@ const Modal = ({ className, children, closeModal, isOpened }: ModalProps) => {
   }, [isOpened]);
 
   return createPortal(
-    <div
-      className={clsx(s.backdrop, { [s.opened]: isOpened })}
-      onClick={handleClickOnBackdrop}
+    <CSSTransition
+      nodeRef={nodeRef}
+      in={isOpened}
+      timeout={5000}
+      mountOnEnter
+      unmountOnExit
+      classNames={{
+        enter: s.modalEnter,
+        enterActive: s.modalEnterActive,
+        exit: s.modalExit,
+        exitActive: s.modalExitActive
+      }}
     >
-      <div className={clsx(className, s.container)}>
-        <button className={s.closeButton} type="button" onClick={() => closeModal()}>
-          <CrossIcon width={32} height={32} />
-        </button>
-        {children}
+      <div className={s.backdrop} onClick={handleClickOnBackdrop} ref={nodeRef}>
+        <div className={clsx(className, s.container)}>
+          <button className={s.closeButton} type="button" onClick={() => closeModal()}>
+            <CrossIcon width={32} height={32} />
+          </button>
+          {children}
+        </div>
       </div>
-    </div>,
+    </CSSTransition>,
     modalRef.current!
   );
 };

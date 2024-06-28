@@ -19,9 +19,9 @@ const Header = () => {
         <Logo className={s.logo} />
         <Navigation />
         {(isLoggedIn && <UserPanel />) || (
-          <div>
+          <div className={s.signInUpButtonsContainer}>
             <LogButton title="in" onClick={() => {}} />
-            <RegistrationButton />
+            <RegistrationButton className={s.registrationButton} />
           </div>
         )}
       </PageContainer>

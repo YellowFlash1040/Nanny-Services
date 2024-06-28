@@ -43,10 +43,6 @@
   column-gap: 8px;
 }
 
-.registrationButton {
-  --border-color: var(--main-color);
-}
-
 .modal {
   width: 566px;
 }

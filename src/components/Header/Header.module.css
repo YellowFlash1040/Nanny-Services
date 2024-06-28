@@ -18,3 +18,13 @@
   line-height: 1.17;
   letter-spacing: -0.02em;
 }
+
+.signInUpButtonsContainer {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.registrationButton {
+  --border-color: #fbfbfb66;
+}

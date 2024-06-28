@@ -1,3 +1,4 @@
+import { transitionTime } from '../constants';
 import { Theme } from '../types';
 
 const changeColorVariable = (variableName: string, value: string) => {
@@ -12,7 +13,7 @@ const addTransitionEffect = () => {
     document
       .querySelectorAll('*')
       .forEach((el) => el.classList.remove('theme-transition-effect'));
-  }, 250);
+  }, transitionTime);
 };
 
 export const changeAppTheme = (newTheme: Theme) => {

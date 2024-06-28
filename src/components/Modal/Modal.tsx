@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { CSSTransition } from 'react-transition-group';
 
 import { CrossIcon } from '../../assets';
+import { transitionTime } from '../../constants';
 
 import s from './Modal.module.css';
 
@@ -55,7 +56,7 @@ const Modal = ({ className, children, closeModal, isOpened }: ModalProps) => {
     <CSSTransition
       nodeRef={nodeRef}
       in={isOpened}
-      timeout={5000}
+      timeout={transitionTime}
       mountOnEnter
       unmountOnExit
       classNames={{

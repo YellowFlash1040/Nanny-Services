@@ -29,12 +29,10 @@ const RegisterForm = () => {
   });
 
   const handleOnSubmit = async (data: RegisterFormData) => {
-    try {
-      await signUp(data);
-    } catch (error) {
-      console.error('Error signing up: ', (error as Error).message);
+    const result = await signUp(data);
+    if (result) {
+      reset();
     }
-    reset();
   };
 
   return (

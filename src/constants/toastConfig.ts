@@ -1,12 +1,21 @@
 import { Theme, ToastPosition, Bounce } from 'react-toastify';
 
-export const toastOptions = {
+const toastOptions = {
   position: 'top-center' as ToastPosition,
-  autoClose: 3000,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: true,
   draggable: true,
   theme: 'light' as Theme,
   transition: Bounce
+};
+
+export const toastOptionsSuccess = {
+  ...toastOptions,
+  autoClose: 2000
+};
+
+export const toastOptionsError = {
+  ...toastOptions,
+  autoClose: 4000
 };

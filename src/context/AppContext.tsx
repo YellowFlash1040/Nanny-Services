@@ -6,9 +6,11 @@ import {
   onAuthStateChanged,
   updateProfile
 } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 import { RegisterUserData, UserCredentials, UserData } from '../types';
 import { auth } from '../fireBase';
+import { toastOptionsError, toastOptionsSuccess } from '../constants';
 
 import { AppContext } from './contextConfig';
 
@@ -40,19 +42,10 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
 
   const logIn = async (data: UserCredentials) => {
     try {
-      /* const result =  */ await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-
-      // setUserData({
-      //   name: result.user.displayName || '',
-      //   email: data.email,
-      //   id: result.user.uid
-      // });
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      toast.success('Logged in successfully', toastOptionsSuccess);
     } catch (error) {
-      console.error('Error logging in: ', error);
+      toast.error(`Error - email or password is wrong`, toastOptionsError);
     }
   };
 
@@ -67,17 +60,18 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       updateProfile(result.user, { displayName: data.fullname });
       setIsLoggedIn(true);
       setUserData({ name: data.fullname, email: data.email, id: result.user.uid });
+      toast.success('Signed up and logged in successfully', toastOptionsSuccess);
     } catch (error) {
-      console.error('Error signing up: ', error);
+      toast.error(`Error - user with this email already exists`, toastOptionsError);
     }
   };
 
   const logOut = async () => {
     try {
       await signOut(auth);
-      // setUserData({ name: '', email: '', id: '' });
+      toast.success('Logged out successfully', toastOptionsSuccess);
     } catch (error) {
-      console.error('Error logging out: ', error);
+      toast.error(`Error - something went wrong`, toastOptionsError);
     }
   };
 

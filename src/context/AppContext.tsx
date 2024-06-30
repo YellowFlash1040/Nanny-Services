@@ -44,8 +44,10 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
       toast.success('Logged in successfully', toastOptionsSuccess);
+      return true;
     } catch (error) {
       toast.error(`Error - email or password is wrong`, toastOptionsError);
+      return false;
     }
   };
 
@@ -61,8 +63,10 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       setIsLoggedIn(true);
       setUserData({ name: data.fullname, email: data.email, id: result.user.uid });
       toast.success('Signed up and logged in successfully', toastOptionsSuccess);
+      return true;
     } catch (error) {
       toast.error(`Error - user with this email already exists`, toastOptionsError);
+      return false;
     }
   };
 
@@ -70,8 +74,10 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     try {
       await signOut(auth);
       toast.success('Logged out successfully', toastOptionsSuccess);
+      return true;
     } catch (error) {
       toast.error(`Error - something went wrong`, toastOptionsError);
+      return false;
     }
   };
 

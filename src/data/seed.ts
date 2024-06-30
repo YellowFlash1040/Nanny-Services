@@ -1,4 +1,4 @@
-import { nanniesData } from '../data';
+import { nanniesData } from '.';
 import { dataCollectionName } from '../constants';
 import { addFile } from '../fireBase';
 

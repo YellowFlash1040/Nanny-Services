@@ -12,7 +12,7 @@ const schema = yup.object({
     .min(0, 'x > 0 and x <= 12')
     .max(12, 'x > 0 and x <= 12')
     .required(),
-  time: yup.string() /* .required() */,
+  time: yup.string(),
   email: yup.string().email().required(),
   fullname: yup.string().min(3).max(48).required(),
   comment: yup.string().max(500)

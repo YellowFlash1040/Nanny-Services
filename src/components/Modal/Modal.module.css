@@ -43,9 +43,6 @@
   }
 }
 
-/*Styles to animate the modal appearance. They are being used in the CSSTransition component. For more details read the official documentation. 
-Also I would like to mention an important thing that the "transition" property has to be added only to the "Active" classes. Otherwise it won't work.
-Also you can watch this playlist on YouTube, it is quite simple and good: https://www.youtube.com/playlist?list=PL6DxKON1uLOH0vVpdrZhUAVpHerNbUxfF*/
 .modalEnter {
   opacity: 0;
   pointer-events: none;

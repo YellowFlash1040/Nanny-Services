@@ -7,8 +7,6 @@ import schema from './shema';
 
 import s from './AppointmentForm.module.css';
 
-// interface AppointmentFormProps {}
-
 interface FormFields {
   address: string;
   phone: string;

@@ -29,12 +29,10 @@ const LoginForm = () => {
   });
 
   const handleOnSubmit = async (data: LoginFormData) => {
-    try {
-      await logIn(data);
-    } catch (error) {
-      console.error('Error logging in: ', error);
+    const result = await logIn(data);
+    if (result) {
+      reset();
     }
-    reset();
   };
 
   return (

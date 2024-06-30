@@ -35,7 +35,6 @@ const NanniesPage = () => {
   };
 
   const handleOnLikeClick = (nanny: NannyCardData, isLiked: boolean) => {
-    console.log(nanny.name, isLiked);
     if (isLiked) {
       setLikedNannies([...likedNannies, nanny.name]);
     } else {

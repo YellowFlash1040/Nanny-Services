@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import {
   DataLoader,
@@ -10,7 +11,11 @@ import {
 import { filterNannies } from '../../helpers';
 import { Filter, NannyCardData } from '../../types';
 import { fetchCollection } from '../../fireBase';
-import { dataCollectionName, numberOfNanniesPerPage } from '../../constants';
+import {
+  dataCollectionName,
+  numberOfNanniesPerPage,
+  toastOptionsError
+} from '../../constants';
 import { useAppContext } from '../../hooks';
 
 import s from './NanniesPage.module.css';
@@ -41,9 +46,14 @@ const NanniesPage = () => {
   useEffect(() => {
     const fetchNannies = async () => {
       setIsLoading(true);
-      const data = (await fetchCollection(dataCollectionName)) as NannyCardData[];
-      setNannies(data);
-      setIsLoading(false);
+      try {
+        const data = (await fetchCollection(dataCollectionName)) as NannyCardData[];
+        setNannies(data);
+      } catch (error) {
+        toast.error('Something went wrong during data fetching', toastOptionsError);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     fetchNannies();

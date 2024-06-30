@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import {
   DataLoader,
@@ -12,7 +13,11 @@ import { Filter, NannyCardData } from '../../types';
 import { filterNannies } from '../../helpers';
 import { useAppContext } from '../../hooks';
 import { fetchCollection } from '../../fireBase';
-import { dataCollectionName, numberOfNanniesPerPage } from '../../constants';
+import {
+  dataCollectionName,
+  numberOfNanniesPerPage,
+  toastOptionsError
+} from '../../constants';
 
 import s from './FavoritesPage.module.css';
 
@@ -46,11 +51,16 @@ const FavoritesPage = () => {
   useEffect(() => {
     const fetchNannies = async () => {
       setIsLoading(true);
-      const data = (await fetchCollection(dataCollectionName)) as NannyCardData[];
-      setNannies(
-        likedNannies.current.map((n) => data.find((nanny) => nanny.name === n)!)
-      );
-      setIsLoading(false);
+      try {
+        const data = (await fetchCollection(dataCollectionName)) as NannyCardData[];
+        setNannies(
+          likedNannies.current.map((n) => data.find((nanny) => nanny.name === n)!)
+        );
+      } catch (error) {
+        toast.error('Something went wrong during data fetching', toastOptionsError);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     if (userData.id !== '') {

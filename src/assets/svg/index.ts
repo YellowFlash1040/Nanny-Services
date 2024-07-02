@@ -9,6 +9,7 @@ import CrossIcon from './Cross.svg?react';
 import ClockIcon from './Clock.svg?react';
 import EyeIcon from './Eye.svg?react';
 import EyeOffIcon from './EyeOff.svg?react';
+import BurgerMenuIcon from './BurgerMenu.svg?react';
 
 export {
   UserProfileIcon,
@@ -21,5 +22,6 @@ export {
   CrossIcon,
   ClockIcon,
   EyeIcon,
-  EyeOffIcon
+  EyeOffIcon,
+  BurgerMenuIcon
 };

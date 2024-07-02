@@ -1,8 +1,10 @@
 import * as yup from 'yup';
 
+import { phoneRegExp } from '../../constants';
+
 const schema = yup.object({
   address: yup.string().required(),
-  phone: yup.string().required(),
+  phone: yup.string().matches(phoneRegExp, 'Phone number is not valid').required(),
   age: yup
     .number()
     .transform((value, originalValue) => {

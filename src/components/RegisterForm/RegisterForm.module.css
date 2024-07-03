@@ -7,6 +7,18 @@
   margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 768px) {
+  .loginLabel {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .loginLabel {
+    font-size: 22px;
+  }
+}
+
 .greetings {
   font-size: 16px;
   line-height: 1.25;
@@ -14,6 +26,18 @@
   color: #11101c80;
 
   margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .greetings {
+    max-width: 90%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .greetings {
+    font-size: 12px;
+  }
 }
 
 form {
@@ -55,6 +79,10 @@ form input {
 
 .passwordFieldWrapper {
   position: relative;
+
+  & input {
+    padding-right: 50px;
+  }
 }
 
 .eyeButton {

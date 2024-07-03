@@ -2,24 +2,13 @@
   background-color: transparent;
   color: var(--text-color-light);
 
-  width: 1376px;
+  padding: 1.39vw 6.7vw;
 
-  padding-top: 52px;
-  padding-bottom: 20px;
-
-  margin: 0 auto;
-
-  border-bottom: 1px solid #fbfbfb66;
-
-  z-index: 1;
-}
-
-.headerContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 96px;
+  border-bottom: 1px solid #fbfbfb66;
 }
 
 .logo {
@@ -27,6 +16,12 @@
   font-weight: 500;
   line-height: 1.17;
   letter-spacing: -0.02em;
+}
+
+@media only screen and (max-width: 480px) {
+  .logo {
+    font-size: 16px;
+  }
 }
 
 .headerRightPartContainer {
@@ -37,12 +32,136 @@
   width: 533px;
 }
 
-.signInUpButtonsContainer {
-  display: flex;
-  align-items: center;
-  column-gap: 8px;
+@media only screen and (min-width: 480px) {
+  .logo {
+    font-size: 24px;
+  }
 }
 
-.modal {
-  width: 566px;
+@media only screen and (max-width: 1389px) {
+  .navigation {
+    display: none;
+  }
+}
+
+.signInUpButtonsContainer {
+  display: none;
+}
+
+@media only screen and (min-width: 1390px) {
+  .signInUpButtonsContainer {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+  }
+}
+
+/* mobile */
+@media only screen and (min-width: 1390px) {
+  .mobileHeader {
+    display: none;
+  }
+}
+
+.burgerMenuButton {
+  background-color: transparent;
+  stroke: var(--text-color-light);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid transparent;
+
+  transition: border-color var(--transition-options);
+
+  &:hover,
+  &:focus {
+    border-color: var(--text-color-light);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .burgerMenuButton {
+    & > svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.burgerMenu {
+  position: fixed;
+  inset: 0;
+  background-color: var(--main-color);
+
+  transform: translateX(100%);
+
+  transition: transform var(--transition-options);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+@media only screen and (min-width: 1200px) {
+  .burgerMenu {
+    display: none;
+  }
+}
+
+.burgerMenuOpened {
+  transform: translateX(0);
+}
+
+.mobileSignInUpButtonsContainer {
+  display: flex;
+  column-gap: 12px;
+
+  & button {
+    --border-color: #fbfbfb66;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .mobileSignInUpButtonsContainer {
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+  }
+}
+
+.mobileNavigationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 40px;
+}
+
+.mobileNavigation {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 40px;
+
+  & > ul {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+
+    height: auto;
+  }
+}
+
+.closeBurgerMenuButton {
+  background-color: transparent;
+  stroke: var(--text-color-light);
+  display: flex;
 }

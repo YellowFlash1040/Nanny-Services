@@ -3,7 +3,6 @@
 
   border-radius: 24px;
 
-  width: 1184px;
   max-width: 1184px;
 
   padding: 24px;
@@ -16,6 +15,12 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
+}
+
+@media only screen and (max-width: 1219px) {
+  .card {
+    flex-direction: column;
+  }
 }
 
 .avatarContainer {
@@ -43,6 +48,18 @@
     border: 2px solid var(--text-color-light);
 
     background-color: #38cd3e;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .avatarContainer {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 466px) {
+  .avatarContainer {
+    margin-bottom: 80px;
   }
 }
 
@@ -101,6 +118,12 @@
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .profileInfoListItem {
+    font-size: 12px;
+  }
+}
+
 .aboutParagraph {
   color: #11101c80;
 
@@ -108,6 +131,12 @@
   line-height: 1.25;
 
   margin-bottom: 14px;
+}
+
+@media only screen and (max-width: 480px) {
+  .aboutParagraph {
+    font-size: 12px;
+  }
 }
 
 .readMoreButton {
@@ -118,6 +147,12 @@
   line-height: 1.5;
 }
 
+@media only screen and (max-width: 480px) {
+  .readMoreButton {
+    font-size: 12px;
+  }
+}
+
 .sortingInfoList {
   display: flex;
   column-gap: 32px;
@@ -125,6 +160,21 @@
   position: absolute;
   top: 24px;
   right: 98px;
+}
+
+@media only screen and (max-width: 1349px) {
+  .sortingInfoList {
+    flex-wrap: wrap;
+    padding-left: 500px;
+    padding-left: 50%;
+    justify-content: end;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sortingInfoList {
+    padding-left: 200px;
+  }
 }
 
 .sortingInfoListItem {
@@ -146,6 +196,42 @@
     transform: translateY(-50%);
 
     background-color: #11101c33;
+  }
+}
+
+@media only screen and (max-width: 1349px) {
+  .sortingInfoListItem:last-child::before {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1008px) {
+  .sortingInfoListItem::before {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 517px) {
+  .sortingInfoList {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 629px) {
+  .sortingInfoList {
+    top: 80px;
+    right: 20px;
+  }
+}
+
+@media only screen and (max-width: 466px) {
+  .sortingInfoList {
+    left: 20px;
+    top: 160px;
+    padding: 0;
+    justify-content: start;
+    column-gap: 10px;
+    row-gap: 2px;
   }
 }
 
@@ -178,9 +264,33 @@
 }
 
 .modal {
-  width: 600px;
+  max-width: 600px;
+}
+
+@media only screen and (max-width: 1439px) {
+  .modal {
+    --padding: 30px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modal {
+    max-width: 80vw;
+  }
 }
 
 .loginModal {
-  width: 566px;
+  max-width: 566px;
+}
+
+@media only screen and (max-width: 1439px) {
+  .loginModal {
+    --padding: 30px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .loginModal {
+    max-width: 80vw;
+  }
 }

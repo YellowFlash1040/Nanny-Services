@@ -35,22 +35,37 @@ const AppointmentForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)}>
+    <form className={s.form} onSubmit={handleSubmit(handleFormSubmit)}>
       <div className={s.twoFieldsContainer}>
         <label className={s.formField}>
-          <input type="text" placeholder="Address" {...register('address')} />
+          <input
+            className={s.input}
+            type="text"
+            placeholder="Address"
+            {...register('address')}
+          />
           {errors.address && (
             <span className={s.errorSpan}>{errors.address.message}</span>
           )}
         </label>
         <label className={s.formField}>
-          <input type="tel" placeholder="+380" {...register('phone')} />
+          <input
+            className={s.input}
+            type="tel"
+            placeholder="+380"
+            {...register('phone')}
+          />
           {errors.phone && <span className={s.errorSpan}>{errors.phone.message}</span>}
         </label>
       </div>
       <div className={s.twoFieldsContainer}>
         <label className={s.formField}>
-          <input type="text" placeholder="Child's age" {...register('age')} />
+          <input
+            className={s.input}
+            type="text"
+            placeholder="Child's age"
+            {...register('age')}
+          />
           {errors.age && <span className={s.errorSpan}>{errors.age.message}</span>}
         </label>
         <Controller
@@ -60,17 +75,25 @@ const AppointmentForm = () => {
             <TimePicker
               value={field.value!}
               onChange={field.onChange}
+              className={s.timePickerContainer}
               dropDownClassName={s.timePicker}
+              buttonClassName={s.timePickerToggleButton}
             />
           )}
         />
       </div>
       <label className={s.formField}>
-        <input type="email" placeholder="Email" {...register('email')} />
+        <input
+          className={s.input}
+          type="email"
+          placeholder="Email"
+          {...register('email')}
+        />
         {errors.email && <span className={s.errorSpan}>{errors.email.message}</span>}
       </label>
       <label className={s.formField}>
         <input
+          className={s.input}
           type="text"
           placeholder="Father's or mother's name"
           {...register('fullname')}

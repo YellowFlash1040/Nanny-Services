@@ -3,40 +3,44 @@
 
   border-radius: 20px;
 
-  padding: 32px;
-
   display: flex;
-  column-gap: 16px;
+  column-gap: 1.11vw;
 
-  width: 284px;
+  width: 19.72vw;
+
+  padding: 2.22vw;
 }
 
 .checkMarkContainer {
   background-color: var(--main-color);
+  fill: var(--text-color-light);
 
   border-radius: 13px;
 
-  padding: 12px;
+  width: 3.75vw;
+  height: 3.75vw;
 
-  fill: var(--text-color-light);
+  padding: 0.83vw;
 
-  width: 54px;
-  height: 54px;
+  & > svg {
+    width: 2.08vw;
+    height: 2.08vw;
+  }
 }
 
 .experiencedNanniesLabel {
   color: #11101c80;
 
-  font-size: 16px;
+  font-size: 1.11vw;
   line-height: 1.19;
 
-  margin-bottom: 6px;
+  margin-bottom: 0.42vw;
 
   width: 100%;
 }
 
 .nanniesAmount {
-  font-size: 24px;
+  font-size: 1.67vw;
   font-weight: 700;
   line-height: 1.22;
 }

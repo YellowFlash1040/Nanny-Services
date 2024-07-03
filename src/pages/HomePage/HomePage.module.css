@@ -1,68 +1,219 @@
-.section {
-  padding: 163px 0;
-
-  color: var(--text-color-light);
+body {
+  overflow: hidden;
 }
 
-.container {
-  width: 1440px;
+.pageContainer {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.title {
-  font-size: 70px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.03em;
+.bodyContainer {
+  background-color: var(--main-color);
 
-  max-width: 517px;
-
-  margin-bottom: 28px;
-}
-
-.slogan {
-  font-size: 28px;
-  line-height: 1.07;
-  letter-spacing: -0.02em;
-
-  margin-bottom: 64px;
-}
-
-.redBackground {
-  position: absolute;
-  top: 32px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  width: 1376px;
-  height: 736px;
+  width: 97vw;
 
   border-radius: 30px;
 
   background-color: var(--main-color);
 
-  z-index: -1;
+  overflow: hidden;
+
+  position: relative;
 }
 
-.heroImage {
-  background: linear-gradient(#12141799, #12141799),
-    url('../../assets/images/hero-image.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  width: 699px;
-  height: 736px;
-
+.contentContainer {
   position: absolute;
-  top: 0;
-  right: 0;
 
-  border-radius: 0px 30px 30px 0px;
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
 }
 
-.experiencedNanniesCard {
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
+.section {
+  height: 100%;
+}
+
+@media only screen and (orientation: landscape) {
+  @media only screen and (max-height: 800px) {
+    .pageContainer {
+      height: 800px;
+      padding: 32px;
+    }
+  }
+
+  .bodyContainer {
+    height: 51.87vw;
+  }
+
+  @media only screen and (max-height: 800px) {
+    .bodyContainer {
+      width: 1440px;
+      height: 736px;
+    }
+  }
+
+  .heroImage {
+    background: linear-gradient(#12141799, #12141799),
+      url('../../assets/images/hero-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 699px;
+    width: 48vw;
+    height: 736px;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @media only screen and (max-height: 800px) {
+    .heroImage {
+      width: 699px;
+      height: 736px;
+    }
+
+    @media only screen and (max-width: 1380px) {
+      .heroImage {
+        inset: 0;
+        width: 100%;
+      }
+
+      .getStartedButton {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .experiencedNanniesCard {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+  }
+
+  .section {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .container {
+    padding: 0 6vw;
+
+    color: var(--text-color-light);
+  }
+
+  .title {
+    font-size: 4.5vw;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -3%;
+
+    max-width: 36vw;
+
+    margin-bottom: 2vw;
+  }
+
+  .slogan {
+    font-size: 2vw;
+    line-height: 1.07;
+    letter-spacing: -0.02em;
+
+    margin-bottom: 64px;
+    margin-bottom: 4.44vw;
+
+    max-width: 35.9vw;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .bodyContainer {
+    height: 90vh;
+    max-height: 800px;
+  }
+
+  .experiencedNanniesCard {
+    display: none;
+  }
+
+  .section {
+    padding: 10vw;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .section {
+      padding: 20vw;
+      text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .section {
+      padding: 12vw;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    padding: 0;
+
+    color: var(--text-color-light);
+  }
+
+  .title {
+    font-size: 4.5vw;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -3%;
+
+    margin-bottom: 2vw;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .title {
+      font-size: 6vw;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .title {
+      font-size: 6vw;
+    }
+  }
+
+  .slogan {
+    font-size: 3vw;
+    line-height: 1.07;
+    letter-spacing: -0.02em;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .slogan {
+      font-size: 3vw;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .slogan {
+      font-size: 4vw;
+    }
+  }
+
+  .getStartedButton {
+    position: absolute;
+    bottom: 10vh;
+  }
 }

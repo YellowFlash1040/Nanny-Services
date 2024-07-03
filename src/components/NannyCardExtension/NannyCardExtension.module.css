@@ -1,14 +1,32 @@
+body {
+  overflow: scroll;
+}
+
 .reviews {
   margin-bottom: 48px;
 }
 
 .buttonsContainer {
   display: flex;
+  justify-content: space-between;
   column-gap: 20px;
+}
+
+@media only screen and (max-width: 630px) {
+  .buttonsContainer {
+    flex-direction: column;
+    row-gap: 20px;
+  }
 }
 
 .makeAnAppointmentButton {
   padding: 14px 28px;
+}
+
+@media only screen and (max-width: 380px) {
+  .makeAnAppointmentButton {
+    font-size: 12px;
+  }
 }
 
 .readLessButton {
@@ -17,4 +35,6 @@
   text-decoration: underline;
   font-weight: 500;
   line-height: 1.5;
+
+  padding: 0 28px;
 }

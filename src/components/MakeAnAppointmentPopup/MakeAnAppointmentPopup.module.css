@@ -44,3 +44,50 @@
   font-weight: 500;
   line-height: 1.5;
 }
+
+@media only screen and (max-width: 1440px) {
+  .title {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    margin-bottom: 20px;
+  }
+
+  .nannyInfoCard {
+    margin-bottom: 30px;
+  }
+
+  .yourNannyLabel {
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    max-width: 70%;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .title {
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .description {
+    line-height: 1;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+}

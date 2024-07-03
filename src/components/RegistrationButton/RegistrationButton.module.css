@@ -23,5 +23,17 @@
 }
 
 .modal {
-  width: 566px;
+  max-width: 566px;
+}
+
+@media only screen and (max-width: 1439px) {
+  .modal {
+    --padding: 30px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modal {
+    max-width: 80vw;
+  }
 }

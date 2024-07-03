@@ -92,34 +92,36 @@ const NanniesPage = () => {
     <main>
       <section className={s.nannysSection}>
         <PageContainer className={s.container}>
-          <Filters className={s.filters} onChange={(filter) => setFilter(filter)} />
-          {!isLoading && filteredNannies.length > 0 && (
-            <ul className={s.nanniesList}>
-              {filteredNannies.map((data) => (
-                <li key={filter + data.name}>
-                  <NannyCard
-                    cardData={data}
-                    isLiked={likedNannies.some((nanny) => nanny === data.name)}
-                    onLikeClick={handleOnLikeClick}
-                  />
-                </li>
-              ))}
-            </ul>
-          )}
-          {!isLoading && filteredNannies.length === 0 && (
-            <p className={s.nothingFoundLabel}>{'Nothing found :('}</p>
-          )}
-          {isLoading && (
-            <div className={s.dataLoader}>
-              <DataLoader />
-            </div>
-          )}
-          {page < pagesCount && (
-            <LoadMoreButton
-              className={s.loadMoreButton}
-              onClick={handleLoadMoreButtonClick}
-            />
-          )}
+          <div className={s.filtersAndListContainer}>
+            <Filters className={s.filters} onChange={(filter) => setFilter(filter)} />
+            {!isLoading && filteredNannies.length > 0 && (
+              <ul className={s.nanniesList}>
+                {filteredNannies.map((data) => (
+                  <li key={filter + data.name}>
+                    <NannyCard
+                      cardData={data}
+                      isLiked={likedNannies.some((nanny) => nanny === data.name)}
+                      onLikeClick={handleOnLikeClick}
+                    />
+                  </li>
+                ))}
+              </ul>
+            )}
+            {!isLoading && filteredNannies.length === 0 && (
+              <p className={s.nothingFoundLabel}>{'Nothing found :('}</p>
+            )}
+            {isLoading && (
+              <div className={s.dataLoader}>
+                <DataLoader />
+              </div>
+            )}
+            {page < pagesCount && (
+              <LoadMoreButton
+                className={s.loadMoreButton}
+                onClick={handleLoadMoreButtonClick}
+              />
+            )}
+          </div>
         </PageContainer>
       </section>
     </main>

@@ -49,6 +49,10 @@ form textarea {
   column-gap: 8px;
 
   margin-bottom: 16px;
+
+  & > label {
+    width: 100%;
+  }
 }
 
 .sendButton {
@@ -56,8 +60,16 @@ form textarea {
   width: 100%;
 }
 
+.timePickerContainer {
+  width: 100%;
+}
+
 .timePicker {
   z-index: 10001;
+}
+
+.timePickerToggleButton {
+  --width: 100%;
 }
 
 .formField {
@@ -94,5 +106,24 @@ form textarea {
     background-color: var(--text-color-light);
 
     z-index: -1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .twoFieldsContainer:first-child {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  .form .input {
+    /* padding: 10px 16px;
+    font-size: 12px; */
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .twoFieldsContainer {
+    flex-direction: column;
+    row-gap: 16px;
   }
 }

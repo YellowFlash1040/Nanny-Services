@@ -8,10 +8,6 @@
 
   z-index: 1000;
 
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
   background-color: rgba(22, 22, 22, 0.8);
 
   overflow-y: auto;
@@ -31,20 +27,6 @@
   align-items: center;
 }
 
-/* @media only screen and (max-height: 967px) {
-  .backdrop {
-    padding: 30px 0;
-  }
-}
-
-@media only screen and (min-height: 968px) {
-  .backdrop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-} */
-
 .container {
   background-color: var(--text-color-light);
 
@@ -54,12 +36,6 @@
 
   position: relative;
 }
-
-/* @media only screen and (max-height: 967px) {
-  .container {
-    margin: 0 auto;
-  }
-} */
 
 .closeButton {
   background-color: transparent;

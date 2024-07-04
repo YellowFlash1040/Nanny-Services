@@ -41,6 +41,35 @@
   }
 }
 
+.pageItem > a {
+  outline: none;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: translate(-14%, -10%);
+
+    width: 140%;
+    height: 120%;
+
+    border: 1px solid transparent;
+    border-radius: 30px;
+
+    transition: border-color var(--transition-options);
+
+    pointer-events: none;
+  }
+
+  &:hover::before,
+  &:focus::before {
+    border-color: var(--text-color-light);
+  }
+}
+
 .homePageNavList {
   align-items: center;
 }

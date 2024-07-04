@@ -19,14 +19,20 @@ const Navigation = ({ className }: NavigationProps) => {
         className={clsx(s.pagesList, { [s.homePageNavList]: location.pathname === '/' })}
       >
         <li className={s.pageItem}>
-          <NavLink to={'/'}>Home</NavLink>
+          <NavLink to={'/'} onClick={(e) => e.currentTarget.blur()}>
+            Home
+          </NavLink>
         </li>
         <li className={clsx(s.pageItem, s.pageItemAfter)}>
-          <NavLink to={'/nannies'}>Nannies</NavLink>
+          <NavLink to={'/nannies'} onClick={(e) => e.currentTarget.blur()}>
+            Nannies
+          </NavLink>
         </li>
         {isLoggedIn && location.pathname !== '/' && (
           <li className={clsx(s.pageItem, s.pageItemAfter)}>
-            <NavLink to={'/favorites'}>Favorites</NavLink>
+            <NavLink to={'/favorites'} onClick={(e) => e.currentTarget.blur()}>
+              Favorites
+            </NavLink>
           </li>
         )}
       </ul>

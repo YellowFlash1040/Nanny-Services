@@ -9,7 +9,11 @@ interface LogoProps {
 
 const Logo = ({ className }: LogoProps) => {
   return (
-    <Link className={clsx(s.logo, className)} to={'/'}>
+    <Link
+      className={clsx(s.logo, className)}
+      to={'/'}
+      onClick={(e) => e.currentTarget.blur()}
+    >
       Nanny.Services
     </Link>
   );

@@ -1,0 +1,27 @@
+.logo {
+  position: relative;
+  outline: none;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: translate(-1%, -1%);
+
+    width: 104%;
+    height: 102%;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    transition: border-color var(--transition-options);
+  }
+
+  &:hover::before,
+  &:focus::before {
+    border-color: var(--text-color-light);
+  }
+}
